@@ -5,6 +5,12 @@ https://miegacoan.com/images/logo-full.png
 heading
 https://miegacoan.com/images/HEADER/HEADER.jpg
 
+about
+https://miegacoan.com/images/GALERI/New3.png
+https://miegacoan.com/images/KOTA/CIREBON.jpg
+https://miegacoan.com/images/KOTA/SEMARANG1.jpg
+https://miegacoan.com/images/KOTA/SOLO2.jpg
+
 line text
 https://miegacoan.com/images/tagline-1.png
 https://miegacoan.com/images/tagline-2.png

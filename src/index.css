@@ -7,8 +7,9 @@
     background-color: #020617;
     color: white;
   }
-  
-  .under_line {
+
+  .under_line,
+  .active {
     font-size: 18px;
     color: rgb(255, 255, 255, 0.7);
     position: relative;
@@ -18,7 +19,8 @@
   }
 
   .under_line:focus,
-  .under_line:hover {
+  .under_line:hover,
+  .active {
     color: #00b2d8;
   }
 
@@ -28,7 +30,8 @@
     left: 0%;
   }
 
-  .under_line:after {
+  .under_line:after,
+  .active::after {
     content: "";
     pointer-events: none;
     bottom: -2px;
@@ -79,5 +82,222 @@
   .hamburger input:checked + svg .line-top-bottom {
     stroke-dasharray: 20 300;
     stroke-dashoffset: -32.42;
+  }
+
+  .button {
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #090909;
+    padding: 0.7em 1.7em;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid #4f4f4f;
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    font-size: 19px;
+    cursor: pointer;
+    color: white;
+    background-color: #ec008c;
+    z-index: 1;
+  }
+
+  .button:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+
+  .button:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+
+  .button:hover {
+    color: #ffffff;
+    border: 1px solid #00b2d8;
+  }
+
+  .button:hover:before {
+    top: -35%;
+    background-color: #00b2d8;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+
+  .button:hover:after {
+    top: -45%;
+    background-color: #00b2d8;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+
+  .rating > label {
+    margin-right: 4px;
+  }
+
+  .rating:not(:checked) > input {
+    display: none;
+  }
+
+  .rating:not(:checked) > label {
+    float: right;
+    cursor: pointer;
+    font-size: 30px;
+  }
+
+  .rating:not(:checked) > label > svg {
+    fill: #666;
+    transition: fill 0.3s ease;
+  }
+
+  .rating > input:checked ~ label > svg {
+    fill: #ffa723;
+  }
+
+  .rating:not(:checked) > label:hover ~ label > svg,
+  .rating:not(:checked) > label:hover > svg {
+    fill: #ff9e0b;
+  }
+
+  #star1:hover ~ label > svg,
+  #star1:hover > svg {
+    fill: #a23c3c !important;
+  }
+
+  #star2:hover ~ label > svg,
+  #star2:hover > svg {
+    fill: #99542d !important;
+  }
+
+  #star3:hover ~ label > svg,
+  #star3:hover > svg {
+    fill: #9f7e18 !important;
+  }
+
+  #star4:hover ~ label > svg,
+  #star4:hover > svg {
+    fill: #22885e !important;
+  }
+
+  #star5:hover ~ label > svg,
+  #star5:hover > svg {
+    fill: #7951ac !important;
+  }
+
+  #star1:checked ~ label > svg {
+    fill: #ef4444;
+  }
+
+  #star2:checked ~ label > svg {
+    fill: #e06c2b;
+  }
+
+  #star3:checked ~ label > svg {
+    fill: #eab308;
+  }
+
+  #star4:checked ~ label > svg {
+    fill: #19c37d;
+  }
+
+  #star5:checked ~ label > svg {
+    fill: #ab68ff;
+  }
+
+  .card {
+    width: fit-content;
+    height: fit-content;
+    background-color: transparant;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+  }
+
+  .socialContainer {
+    width: 52px;
+    border-radius: 30px;
+    height: 52px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: 0.3s;
+  }
+  .containerOne:hover {
+    background-color: #d62976;
+    transition-duration: 0.3s;
+  }
+  /* twitter*/
+  .containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: 0.3s;
+  }
+  /* linkdin*/
+  .containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: 0.3s;
+  }
+  /* Whatsapp*/
+  .containerFour:hover {
+    background-color: white;
+    transition-duration: 0.3s;
+  }
+
+  .socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: 0.3s;
+  }
+
+  .socialSvg {
+    width: 17px;
+  }
+
+  .socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+  }
+
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }

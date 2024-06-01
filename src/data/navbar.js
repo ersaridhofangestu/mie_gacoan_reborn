@@ -1,27 +1,22 @@
 export const navbar = [
   {
-    icon: "",
     title: "home",
-    link: "",
+    link: "/",
   },
   {
-    icon: "",
     title: "gallery",
-    link: "",
+    link: "/gallery",
   },
   {
-    icon: "",
     title: "outlets",
-    link: "",
+    link: "/outlets",
   },
   {
-    icon: "",
     title: "shop",
-    link: "",
+    link: "/shop",
   },
   {
-    icon: "",
     title: "orders",
-    link: "",
+    link: "/orders",
   },
 ];

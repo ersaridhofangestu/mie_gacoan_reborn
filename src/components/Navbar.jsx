@@ -1,29 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import { navbar } from '../data/navbar'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({ location }) => {
     const [onclick, setOnclick] = useState(false)
+    const [bg, setBg] = useState(false)
     const handleClick = () => setOnclick(!onclick)
 
-
     useEffect(() => {
+        handleBg()
+        handleScroll()
+
+    }, [onclick, bg])
+
+    const handleScroll = () => {
         const targetElement = document.querySelector('#navbar-menu')
         if (onclick && targetElement) {
             disableBodyScroll(targetElement)
         } else {
             enableBodyScroll(targetElement)
         }
+    }
 
+    const handleBg = () => {
+        window.addEventListener("scroll", () => {
+            setBg(window.scrollY > 10);
+        });
         return () => {
-            enableBodyScroll(targetElement)
-        }
-    }, [onclick])
+            window.removeEventListener("scroll", () => {
+                setBg(window.scrollY > 10);
+            });
+        };
+    }
 
-    console.log(onclick)
     return (
-        <header className='px-[1rem] lg:px-0 fixed w-full border-b-2 z-50 bg-dark-999 border-white/70'>
-            <nav className='max-w-[60rem] mx-auto py-5 '>
+        <header className={`fixed top-0 w-full z-50 transition-colors duration-300 ease-in-out ${window.innerWidth >= 768 ? (bg && "bg-dark-999 border-white/70  border-b-2 ") : "bg-dark-999 border-white/70  border-b-2"}`}>
+            <nav className='max-w-[60rem] mx-auto py-5 px-[1rem] lg:px-0 '>
                 <div className='flex justify-between items-center'>
                     <img
                         src='https://miegacoan.com/images/logo-full.png'
@@ -32,13 +45,14 @@ const Navbar = () => {
                     />
                     {window.innerWidth >= 768 ? <Dekstop /> : <Mobile onclick={handleClick} click={onclick} />}
                 </div>
-                <div id='navbar-menu' className={`fixed mt-6 w-screen h-[100vh] ${onclick && "-translate-x-[100%]"} translate-x-[100%] flex justify-end transition-all duration-500 ease-in-out `}>
+                <div id='navbar-menu' className={`fixed mt-6 w-screen h-[100vh] ${onclick && "translate-x-0 w-full"} translate-x-[100%] left-0 flex justify-end transition-all duration-500 ease-in-out lg:hidden `}>
                     <div className={`blur-sm bg-dark-999/70 w-screen h-[100vh] `} />
-                    <div className={`absolute bg-dark-999 w-[100%] h-[100vh] ${onclick && "-translate-x-4"} translate-x-[100%] transition-all duration-500 ease-in-out delay-500`}>
+                    <div className={`absolute bg-dark-999 w-[90%] h-[100vh] ${onclick && "translate-x-0  delay-200"} translate-x-[100%] transition-all duration-500 ease-in-out `}>
                         <ul className='flex justify-center items-center flex-col mt-10 gap-5'>
                             {navbar.map((nav, index) => (
                                 <li key={index} onClick={() => setOnclick(false)}
-                                    className='uppercase font-semibold cursor-pointer under_line'>
+                                    className={`uppercase font-semibold cursor-pointer under_line
+                                    ${location.pathname == nav.link && "active border-b-2 border-pink-999"}`}>
                                     {nav.title}
                                 </li>
                             ))}
@@ -54,8 +68,8 @@ export const Dekstop = () => (
     <ul className='flex items-center justify-around w-1/2'>
         {navbar.map((nav, index) => (
             <li key={index}
-                className='uppercase font-semibold cursor-pointer under_line'>
-                {nav.title}
+                className={`uppercase font-semibold cursor-pointer under_line ${location.pathname == nav.link && "active border-b-2 border-pink-999"}`}>
+                <Link to={nav.link}>{nav.title}</Link>
             </li>
         ))}
     </ul>
