@@ -25,7 +25,7 @@ const BestSelling = () => {
         }
     };
     return (
-        <section className='w-full'>
+        <section className='w-full z-10'>
             <div className='max-w-[60rem] mx-auto p-[1rem] lg:px-0'>
                 <div className='flex flex-col justify-center items-center gap-5'>
                     <Heading className={"inline"} title={"Best Selling"} />

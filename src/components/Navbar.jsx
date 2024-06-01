@@ -42,12 +42,13 @@ const Navbar = ({ location }) => {
                         src='https://miegacoan.com/images/logo-full.png'
                         alt='icon mie gacoan'
                         width={80}
+                        height={80}
                     />
                     {window.innerWidth >= 768 ? <Dekstop /> : <Mobile onclick={handleClick} click={onclick} />}
                 </div>
-                <div id='navbar-menu' className={`fixed mt-6 w-screen h-[100vh] ${onclick && "translate-x-0 w-full"} translate-x-[100%] left-0 flex justify-end transition-all duration-500 ease-in-out lg:hidden `}>
+                <div id='navbar-menu' className={`fixed mt-6 w-screen h-[100vh] ${onclick ? "translate-x-0" : "translate-x-[100%] "} left-0 flex justify-end transition-all duration-500 ease-in-out lg:hidden z-50 `}>
                     <div className={`blur-sm bg-dark-999/70 w-screen h-[100vh] `} />
-                    <div className={`absolute bg-dark-999 w-[90%] h-[100vh] ${onclick && "translate-x-0  delay-200"} translate-x-[100%] transition-all duration-500 ease-in-out `}>
+                    <div className={`absolute bg-dark-999 w-[90%] h-[100vh] ${onclick ? "translate-x-0  delay-200" : "translate-x-[100%] "} transition-all duration-500 ease-in-out `}>
                         <ul className='flex justify-center items-center flex-col mt-10 gap-5'>
                             {navbar.map((nav, index) => (
                                 <li key={index} onClick={() => setOnclick(false)}
@@ -60,7 +61,7 @@ const Navbar = ({ location }) => {
                     </div>
                 </div>
             </nav>
-        </header>
+        </header >
     )
 }
 

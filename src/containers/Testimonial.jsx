@@ -76,9 +76,7 @@ const Testimonial = () => {
         setName("")
 
     }
-
-    console.log(create)
-
+    
     return (
         <section className='w-full relative overflow-hidden' style={{
             backgroundImage: `url(https://miegacoan.com/images/DIVIDER/div2.jpg)`, backgroundSize: "cover", backgroundPosition: "center"
