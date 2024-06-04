@@ -1,39 +1,22 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { Navbar, Footer } from '@components';
 import { useLocation } from 'react-router-dom';
-
-import { useCollection } from 'react-firebase-hooks/firestore';
-import { collection } from 'firebase/firestore';
-import Poster from '../containers/Poster';
-
-import { database } from '../libs/firebase';
-import Tabs from '../libs/Tabs';
+import { Poster } from '@container';
+import { useFirebase } from "@hooks";
+import { Tabs } from "@libs"
+import useFilter from '@hooks';
 
 const Shop = () => {
   const location = useLocation();
-  const [value, loading, error] = useCollection(
-    collection(database, "menu"),
-    {
-      snapshotListenOptions: { includeMetadataChanges: true },
-    }
-  );
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
-
+  const [data, loading, error] = useFirebase({ db: "list_menu" })
+  useFilter()
 
   return (
     <>
       <Navbar location={location} />
       <main>
         <Poster />
-        <Tabs data={value} />
+        <Tabs data={data} />
       </main>
       <Footer />
     </>

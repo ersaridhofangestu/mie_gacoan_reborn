@@ -1,9 +1,7 @@
 import React from 'react'
-import Img_hover from '../components/Img.hover'
 import Svg from "../assets/layer.main.svg"
-import Button from "../components/Button"
-import Heading from '../components/Heading'
-import Paragraf from '../components/Paragraf'
+
+import { Button, Heading, Img_hover, Paragraf } from "@components"
 
 const About = () => {
     return (

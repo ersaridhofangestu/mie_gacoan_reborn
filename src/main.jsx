@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+import '@/index.css'
 
 import {
   createBrowserRouter,
@@ -9,11 +9,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import App from "./App";
-import Shop from "./pages/Shop"
-import Outlets from "./pages/Outlets"
-import Orders from "./pages/Orders"
-import Gallery from "./pages/Gallery"
+import App from "@/App";
+
+import { Gallery, Shop, Orders, Outlets } from "@pages"
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

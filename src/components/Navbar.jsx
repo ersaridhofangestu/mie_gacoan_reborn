@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { navbar } from '../data/navbar'
+import { navbar } from '@helpers'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { Link } from 'react-router-dom'
 

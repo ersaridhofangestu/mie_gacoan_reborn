@@ -1,7 +1,5 @@
 import React from 'react'
-import Heading from "../components/Heading"
-import Paragraf from "../components/Paragraf"
-import Button from '../components/Button'
+import { Button, Heading, Paragraf } from '@components'
 
 const Info = () => {
     return (

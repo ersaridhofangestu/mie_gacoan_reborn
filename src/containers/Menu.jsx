@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { FaRupiahSign } from 'react-icons/fa6'
 
 const Menu = ({ data }) => {
-    console.log(data)
     return (
         <div className='w-full mt-40'>
             <div className='max-w-[60rem] mx-auto grid grid-cols-4 gap-5'>

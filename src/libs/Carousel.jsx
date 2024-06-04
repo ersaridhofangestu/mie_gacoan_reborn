@@ -1,8 +1,8 @@
 import React from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import { carousel } from "../data/carousel"
-import Button from './Button';
+import { carousel } from "@helpers"
+import { Button } from '@components';
 
 const Carousel_ = () => {
     return (

@@ -1,32 +1,9 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import React, { useState } from 'react'
 import Menu from '../containers/Menu';
+import { dataTabs } from "@helpers"
 
 const Tabs_ = ({ data }) => {
-    const [menus, _] = useState({
-        dimsum: data.docs[0].data(),
-        mie1: data.docs[1].data(),
-        mie2: data.docs[2].data(),
-    })
-
-    const dataTabs = [
-        {
-            image: "https://miegacoan.vercel.app/static/media/dimsumColor.a5f735c7d492c808eece.png",
-            title: "dimsum",
-            item: menus.dimsum.data.length,
-        },
-        {
-            image: "https://miegacoan.vercel.app/static/media/ramenColor.38bc9dbf9ad9fd47976b.png",
-            title: "mie",
-            item: menus.mie1.data.length
-        },
-        {
-            image: "https://miegacoan.vercel.app/static/media/poinsettiaColor.cfe7ac06a5db5c9f68f8.png",
-            title: "minuman",
-            item: "s"
-        },
-    ]
-
     return (
         <Tabs defaultIndex={1} >
             <h2 className='text-center mt-10 mb-3' >kategori</h2>
@@ -41,7 +18,7 @@ const Tabs_ = ({ data }) => {
                 ))}
             </TabList>
             <TabPanel>
-                <Menu data={menus.dimsum} />
+                {/* <Menu data={menus.dimsum} /> */}
             </TabPanel>
             <TabPanel>
                 <h2>Any content 2</h2>

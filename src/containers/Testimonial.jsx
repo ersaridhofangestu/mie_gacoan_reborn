@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaBackspace, FaRegSadCry, FaRegSmile, FaStar, FaUserAstronaut } from "react-icons/fa";
 import { IoTriangle } from 'react-icons/io5';
 import { MdCreate } from 'react-icons/md';
-import Button from "../components/Button"
+import { Button } from "@components"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { FaUser } from 'react-icons/fa6';
@@ -76,7 +76,7 @@ const Testimonial = () => {
         setName("")
 
     }
-    
+
     return (
         <section className='w-full relative overflow-hidden' style={{
             backgroundImage: `url(https://miegacoan.com/images/DIVIDER/div2.jpg)`, backgroundSize: "cover", backgroundPosition: "center"

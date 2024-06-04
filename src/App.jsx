@@ -2,11 +2,9 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { useLocation } from 'react-router-dom'
-import Carousel from './components/Carousel'
-import About from './containers/About'
-import BestSelling from './containers/BestSelling'
-import Info from './containers/Info'
-import Testimonial from './containers/Testimonial'
+import { Carousel } from '@libs'
+
+import { About, BestSelling, Info, Testimonial } from "@container"
 
 
 const App = () => {
